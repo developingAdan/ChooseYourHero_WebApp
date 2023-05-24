@@ -6,7 +6,7 @@ This is a small web application that utilizes the Marvel API to retrieve and dis
 
 To run this web app locally, follow these steps:
 
-1. Clone the repository: https://github.com/developingAdan/ChooseYourHero_WebApp
+1. Clone the repository
 2. Navigate to the project directory
 3. Run 'npm i' in your terminal
 
