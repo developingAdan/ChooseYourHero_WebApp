@@ -37,8 +37,8 @@ export default function Home() {
         <Container>
             <h1>Wolverine is the best Marvel character.</h1>
             <h1>Spider-Man is the 2nd best.</h1>
-            <h3>(search for you favorite superhero below!)</h3>
-            <SearchBar setter={setHeroes}/>
+            <h3>(search for your favorite superhero below!)</h3>
+            <SearchBar setter={setHeroes} />
             <Grid>
                 {cards ? cards : ""}
                 {/* here ^ we verify if the cards is empty, if so we display an empty string, if not empty we display them */}

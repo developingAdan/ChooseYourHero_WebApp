@@ -21,7 +21,7 @@ export default function SearchBar({ setter }) {
     }
 }
     return (
-        <form>
+        <form className="searchForm_container">
             <input type="text" placeholder="Search" ref={input}/>
             <button onClick={handleClick}>Search</button>
         </form>
