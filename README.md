@@ -1,6 +1,6 @@
 # Marvel API Web App
 
-This is a small web application that utilizes the Marvel API to retrieve and display data from Marvel superheroes.
+This is a small web application that utilizes the Marvel API to retrieve and display data about Marvel superheroes that users search.
 
 ## Getting Started
 
