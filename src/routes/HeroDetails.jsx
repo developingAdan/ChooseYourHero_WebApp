@@ -10,9 +10,22 @@ import { useParams } from "react-router-dom";
 // Import Utils
 import { fetchHero } from "../utils/utils"
 
+function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+  }  
+
+//  ^^ The shuffleArray function uses the Fisher-Yates algorithm to shuffle the array 
+//   in place. By applying the shuffleArray function before slicing the array to 
+//   get the first 20 items, you can display 20 random comics from the API response.
+
 export default function HeroDetails() {
 
-    let { id } = useParams(); // destructuring to get access to... ?
+    let { id } = useParams();
 
     const [hero, setHero] = useState();
 
@@ -29,8 +42,15 @@ export default function HeroDetails() {
     // ^ highly recommended to include conditional rendering. if hero doesn't exist, don't do anything.
 
     // console.log(`hero series are -- ${JSON.stringify(hero.series)}`)
-    console.log(`hero comics are -- ${JSON.stringify(hero.comics.items)}`)
+    // console.log(`hero -- ${JSON.stringify(hero)}`)
+    // console.log(`hero comics are -- ${JSON.stringify(hero.comics)}`)
+    // console.log(`hero comic ITEMS are -- ${JSON.stringify(hero.comics.items)}`)
+    console.log(`hero stories ITEMS are -- ${JSON.stringify(hero.stories.items)}`)
 
+    const comics = hero.comics?.items || [];
+    // const creators = hero.
+
+    // console.table(`comics is -- ${JSON.stringify(comics)}`)
     return (
         <div className="container large">
             <div className="hero__details-container">
@@ -46,10 +66,16 @@ export default function HeroDetails() {
                     </>) : null}
                     {/* here ^ we do NOT run the risk of "not rendering a hero" because of the conditional rendering check above  */}
                     <div className="hero__series">
-                        <h4>Comics featured in:</h4>
+                        <h4>Stories featured in:</h4>
                         <ul>
                             {
-                                hero.comics.items.map(comicsItem => <li key={Math.random() * 1000}>{comicsItem.name}</li>)
+                                // hero.comics.items
+                                //     .sort((a, b) => b - a)
+                                //     .map(comicsItem => <li key={Math.random() * 1000}>{comicsItem.name}</li>)
+                                shuffleArray(hero.stories.items)
+                                                .sort((a, b) => a - b)
+                                                .slice(0, 20) // this is how we display only 5 or 20 comics, using slice() method
+                                                .map(comicsItem => <li key={comicsItem.resourceURI}>{comicsItem.name}</li>)
                             }
                         </ul>
 

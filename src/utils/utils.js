@@ -16,10 +16,14 @@ const fetchHeroes = async (value) => {
 
     let url = `${baseURL}?ts=${ts}&apikey=${apikey}&hash=${hash}&nameStartsWith=${value}`;
 
+    console.log(`url is -- ${url}`)
+    console.log(`baseURL is -- ${baseURL}`)
+    
+
     try {
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data.data.results)
+        // console.log(`data is -- ${JSON.stringify(data.data.results)}`)
         // this ^ console.log displays the data that is retrieved from the api upon search button click
         return data.data.results;
     } catch (err) {
@@ -31,6 +35,7 @@ const fetchHeroes = async (value) => {
 
 const fetchHero = async (id) => {
     let baseURL = `${API_URL}/v1/public/characters/${id}`;
+    // let baseURL = `${API_URL}/v1/public/characters/${id}/comics`;
 
     let ts = Date.now().toString();
     let apikey = process.env.REACT_APP_API_KEY;
@@ -38,11 +43,13 @@ const fetchHero = async (id) => {
     let hash = getHash(ts, privateKey, apikey); // these match the keys on top ^ in terms of format
 
     let url = `${baseURL}?ts=${ts}&apikey=${apikey}&hash=${hash}&`;
+    // let url = `${baseURL}?ts=${ts}&apikey=${apikey}&hash=${hash}&limit=100`;
+    console.log(`URL is -- ${url}`)
 
     try {
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data.data.results)
+        // console.log(`DATA RESULTS IS -- ${JSON.stringify(data.data.results)}`)
         // this ^ console.log displays the data that is retrieved from the api upon search button click
         return data.data.results;
     } catch (err) {

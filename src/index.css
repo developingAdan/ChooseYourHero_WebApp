@@ -18,7 +18,7 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: rgba(139, 0, 0, 0.85);
+  background-color: rgba(101, 16, 17);
 }
 
 h2,
@@ -68,7 +68,7 @@ form input {
 .navbar {
   min-height: 3rem;
   display: flex;
-  background-color: rgba(0, 0, 139, 0.85) ;
+  background-color: rgba(16, 16, 102) ;
 }
 
 .navbar_container {
@@ -121,6 +121,10 @@ header {
 .container.large {
   /* width: min(90%, 72rem); */
   width: 90%;
+}
+
+.homePage_Text {
+  color: rgb(235, 235, 235);
 }
 
 .grid {
@@ -179,6 +183,7 @@ header {
   line-height: 1.6;
   /* justify-content: space-evenly; */
   width: 100%;
+  color: rgb(235, 235, 235);
 }
 
 .hero__details_img_container {
@@ -207,7 +212,7 @@ header {
 }
 
 .hero__details p {
-  font-size: 24px;
+  font-size: 20px;
   font-family: 'Lato', sans-serif;
 
 }
@@ -219,7 +224,7 @@ header {
 }
 
 .hero__details h4 {
-  font-size: 20px;
+  font-size: 24px;
   font-family: 'Lato';
 }
 

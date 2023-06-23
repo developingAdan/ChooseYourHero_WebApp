@@ -8,9 +8,6 @@ import Card from '../components/Card';
 
 const IMAGE_SIZE = 'portrait_fantastic';
 
-
-// HAVE THIS web app DO SOMETHING ABOUT MARVEL vs CAPCOM 2!?
-
 export default function Home() {
     const [heroes, setHeroes] = useState([]);
     // with the useState() hook in React, we get two things here ^
@@ -19,7 +16,7 @@ export default function Home() {
     // trigger a re-rendering of the component itself. 
 
 
-    let cards;
+    let cards = [];
     // if we have heroes (if the list is not empty), we create a card element 
     if (heroes) {
         cards = heroes.map((item) => (
@@ -35,9 +32,9 @@ export default function Home() {
 
     return (
         <Container>
-            <h1>Wolverine is the best Marvel character.</h1>
-            <h1>Spider-Man is the 2nd best.</h1>
-            <h3>(search for your favorite superhero below!)</h3>
+            <h1 class="homePage_Text">Wolverine is the best Marvel character.</h1>
+            <h1 class="homePage_Text">Spider-Man is the 2nd best.</h1>
+            <h3 class="homePage_Text">(search for your favorite superhero below!)</h3>
             <SearchBar setter={setHeroes} />
             <Grid>
                 {cards ? cards : ""}
